@@ -7,15 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
-
 public class TestProductPurchaseFlow {
     @Test
     public void CheckProductPurchaseFlow() {
         System.setProperty("webdriver.chromedriver.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
-
 
         WebElement inputUserName = driver.findElement(By.id("user-name"));
         inputUserName.sendKeys("standard_user");
@@ -29,8 +26,6 @@ public class TestProductPurchaseFlow {
         shoppingCart.click();
         WebElement nameProduct = driver.findElement(By.className("inventory_item_name"));
         WebElement productPrice = driver.findElement(By.className("inventory_item_price"));
-
-
 
         String actualProductName = nameProduct.getText();
         String actualProductPrice = productPrice.getText().replace("$", "").trim();
